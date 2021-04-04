@@ -1,0 +1,20 @@
+server:
+  port: 5000
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+# through actuator, we can call http://localhost:5000/actuator/* to get all routes, mappings and filters
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ['routes', 'mappings', 'filters']

@@ -5,4 +5,5 @@ experiment project to test spring boot, spring cloud and microservice ideas
 |---|---|
 |rest service|spring boot|
 |service discovery|eureka|
-|rest service consume|resttemplate/feign|
+|rest service consume|restExchange / feign + feign fallback|
+|gateway|zuul|
