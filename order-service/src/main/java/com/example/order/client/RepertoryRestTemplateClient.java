@@ -16,9 +16,9 @@ import java.util.List;
 @Component
 public class RepertoryRestTemplateClient {
 
-    private static String getRepertoryByIdUrl = "http://localhost:8081/v1/repertory/{id}";
+    private static String getRepertoryByIdUrl = "http://repertory-srv/v1/repertory/{id}";
 
-    private static String getRepertoryListByIdsUrl = "http://localhost:8081/v1/repertory/ids";
+    private static String getRepertoryListByIdsUrl = "http://repertory-srv/v1/repertory/ids";
 
     @Autowired
     RestTemplate restTemplate;
