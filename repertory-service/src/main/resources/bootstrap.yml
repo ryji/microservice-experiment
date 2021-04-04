@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: repertory-srv
+  profiles:
+    active:
+      default
