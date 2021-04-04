@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient("repertory-srv")
+@FeignClient(value = "repertory-srv", fallback = RepertoryFeignClientFallback.class)
 public interface RepertoryFeignClient {
 
     @GetMapping("/v1/repertory/{id}")

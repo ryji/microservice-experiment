@@ -18,8 +18,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> GetOrderByUserId(Long userId) {
-       Repertory repertory = repertoryClient.getRepertory(1L);
-        return null;
+        Repertory repertory = repertoryClient.getRepertory(1L);
+        Order order = new Order();
+        order.setGoodsId(repertory.getGoodsId());
+        return Arrays.asList(order);
     }
 
     @Override
