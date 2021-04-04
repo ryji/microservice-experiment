@@ -1,6 +1,6 @@
 package com.example.order.services;
 
-import com.example.order.client.RepertoryRestTemplateClient;
+import com.example.order.client.RepertoryFeignClient;
 import com.example.order.model.Order;
 import com.example.order.model.Repertory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    RepertoryRestTemplateClient repertoryClient;
+    RepertoryFeignClient repertoryClient;
 
     @Override
     public List<Order> GetOrderByUserId(Long userId) {
@@ -26,11 +26,10 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> CreateOrders(List<Order> orders) {
         List<Repertory> repertoryList = repertoryClient.getRepertoryList(Arrays.asList(1L, 2L));
 
-        List<Order> orderList = repertoryList.stream().map(item -> {
+        return repertoryList.stream().map(item -> {
             Order order = new Order();
             order.setGoodsId(item.getGoodsId());
             return order;
         }).collect(Collectors.toList());
-        return orderList;
     }
 }
