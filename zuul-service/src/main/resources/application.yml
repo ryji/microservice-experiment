@@ -18,3 +18,15 @@ management:
     web:
       exposure:
         include: ['routes', 'mappings', 'filters']
+
+zuul:
+  ignored-services: '*'
+  prefix: /api
+  routes:
+    repertory-srv: /repo/**
+
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    org.example: DEBUG

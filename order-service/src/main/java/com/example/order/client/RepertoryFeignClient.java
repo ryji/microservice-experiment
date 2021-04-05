@@ -12,10 +12,10 @@ import java.util.List;
 @FeignClient(value = "zuulGateway-srv", fallback = RepertoryFeignClientFallback.class)
 public interface RepertoryFeignClient {
 
-    @GetMapping("/repertory-srv/v1/repertory/{id}")
+    @GetMapping("/api/repo/v1/repertory/{id}")
     Repertory getRepertory(@PathVariable(value = "id") Long id);
 
-    @PostMapping("/repertory-srv/v1/repertory/ids")
+    @PostMapping("/api/repo/v1/repertory/ids")
     List<Repertory> getRepertoryList(@RequestBody List<Long> ids);
 
 }
