@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(value = "repertory-srv", fallback = RepertoryFeignClientFallback.class)
+@FeignClient(value = "zuulGateway-srv", fallback = RepertoryFeignClientFallback.class)
 public interface RepertoryFeignClient {
 
-    @GetMapping("/v1/repertory/{id}")
+    @GetMapping("/repertory-srv/v1/repertory/{id}")
     Repertory getRepertory(@PathVariable(value = "id") Long id);
 
-    @PostMapping("/v1/repertory/ids")
+    @PostMapping("/repertory-srv/v1/repertory/ids")
     List<Repertory> getRepertoryList(@RequestBody List<Long> ids);
 
 }
